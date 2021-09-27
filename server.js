@@ -1,0 +1,10 @@
+const express=require('express')
+const mongoose=require('mongoose')
+const app =express()
+const cors=require('cors')
+app.use(express.json())
+app.use(cors())
+const port=5000
+mongoose.connect("mongodb+srv://dhouha:ranouch95@cluster0.bpggj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",(err)=>err ? console.log(err):console.log("database is connected"))
+app.use("/",require("./routes/Personroute.js"))
+app.listen(port,()=>console.log("listening on port :"+port))
